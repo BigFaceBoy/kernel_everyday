@@ -115,7 +115,8 @@ __global__ void elementwise_add_f32x4_ptr_kernel(float *a, float *b, float *c, i
         out_f32_th: [-0.34702206, 3.06625533], time:0.30064559ms
 -------------------------------------------------------------------------------------
 ```
-指针版本只有在 S=4096, K=4096 才快一点点，还不知道是啥原因，目前在学习nsys profile 分析。
+实际上指针版本更慢，我提了个[issue](https://github.com/xlite-dev/LeetCUDA/issues/341). 
+总结大佬的分析，指针的写法相当于每次都去全局内存取数据写数据，而非指针的写法是先将数据拷贝到寄存器中，再从寄存器取数据。而全局内存的读写是相当昂贵的。
 
 # elementwise_add_f16_kernel
 数据类型为 half，有专门的 _hadd 操作
