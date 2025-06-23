@@ -169,7 +169,7 @@ __global__ void elementwise_add_f16x8_pack_kernel(half *a, half *b, half *c,int 
 
 #define FLOAT2(value) (reinterpret_cast<float2 *>(&(value))[0])
 #define LDST32BITS(value) (reinterpret_cast<float2 *>(&(value))[0])
-__global__ void elementwise_add_f16x2_kernel(half *a, half *b, half *c, int N){
+__global__ void elementwise_add_f16x2_pack_kernel(half *a, half *b, half *c, int N){
     int idx = 2 * (blockIdx.x * blockDim.x + threadIdx.x);
     if(idx < N){
         half pack_a[2],pack_b[2],pack_c[2];
