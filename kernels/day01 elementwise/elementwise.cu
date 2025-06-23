@@ -97,7 +97,7 @@ __global__ void elementwise_add_f16x2_kernel(half *a, half *b, half *c, int N){
 
 //fp16x8 向量化版本
 __global__ void elementwise_add_f16x8_kernel(half *a, half *b, half *c, int N){
-    int idx = 2 * (blockIdx.x * blockDim.x + threadIdx.x);
+    int idx = 8 * (blockIdx.x * blockDim.x + threadIdx.x);
 
     half2 reg_a0 = (reinterpret_cast<half2*>(a + idx + 0))[0];
     half2 reg_a1 = (reinterpret_cast<half2*>(a + idx + 2))[0];
