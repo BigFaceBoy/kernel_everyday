@@ -4,3 +4,4 @@
 
 - [day01 elementwise](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day01%20elementwise)
 - [day02 histogram](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day02%20histogram)
+- [day03 sigmoid](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day03%20sigmoid)
