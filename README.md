@@ -6,3 +6,4 @@
 - [day02 histogram](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day02%20histogram)
 - [day03 sigmoid](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day03%20sigmoid)
 - [day04 relu](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day04%20relu)
+- [day05 elu](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day05%20elu)
