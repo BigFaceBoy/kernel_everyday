@@ -17,18 +17,17 @@ __global__ void elu_f32_kernel(float* x, float* y, int N){
 }
 
 __global__ void elu_f32x4_kernel(float* x, float* y, int N){
-    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    int idx = 4 * (blockIdx.x * blockDim.x + threadIdx.x);
     if(idx + 3 < N){
-        float4 reg_x = reinterpret_cast<float4*>(x)[idx];
+        float4 reg_x = reinterpret_cast<float4*>(x + idx)[0];
         float4 reg_y;
         reg_y.x = reg_x.x >= 0 ? reg_x.x : alpha * (expf(reg_x.x) - 1.0f);
         reg_y.y = reg_x.y >= 0 ? reg_x.y : alpha * (expf(reg_x.y) - 1.0f);
         reg_y.z = reg_x.z >= 0 ? reg_x.z : alpha * (expf(reg_x.z) - 1.0f);
         reg_y.w = reg_x.w >= 0 ? reg_x.w : alpha * (expf(reg_x.w) - 1.0f);
-        reinterpret_cast<float4*>(y)[idx] = reg_y;
+        (reinterpret_cast<float4*>(y + idx))[0] = reg_y;
     }
 }
-
 // const half half_1 = __float2half(1.0f);
 
 // __global__ void elu_f16_kernel(half *x, half *y, int N){
