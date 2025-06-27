@@ -2,7 +2,7 @@
 $$f(x)=\begin{cases}
 x &\text{if x >=  0} \\
 \alpha(e^x - 1) &\text{if x < 0} \\
-\end{cases}$$
+\end{cases}$$  
 其中，$\alpha$是一个超参数，通常取值为1。
 
 
