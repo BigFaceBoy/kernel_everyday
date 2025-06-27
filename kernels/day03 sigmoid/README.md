@@ -1,4 +1,4 @@
-sigmoid:
+# sigmoid 计算公式
 $$
 f(x) = \frac{1}{1+e^{-x}}
 $$

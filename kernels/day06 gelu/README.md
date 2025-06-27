@@ -1,4 +1,4 @@
-gelu:
+# gelu 计算公式
 $$
 f(x) = \frac{1}{2} x(1+tanh(\sqrt{\frac{2}{\pi}}(x+0.044715x^3)))
 $$

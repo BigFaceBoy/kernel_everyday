@@ -1,4 +1,4 @@
-elu:
+# elu 计算公式
 $$f(x)=\begin{cases}
 x &\text{if x >=  0} \\
 \alpha(e^x - 1) &\text{if x < 0} \\
