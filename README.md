@@ -8,3 +8,5 @@
 - [day04 relu](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day04%20relu)
 - [day05 elu](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day05%20elu)
 - [day06 gelu](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day06%20gelu)
+- [day07 swish](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day07%20swish)
+- [day08 hardswish](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day08%20hardswish)
