@@ -33,8 +33,8 @@ __global__ void embedding_f32_kernel(const int *indices, float *embedding_table,
 }
 ```
 
-embedding 这个kernel 其输入输出矩阵size不一致，更能够让我们学习kernel 中 idx 的对应关系
-1、我的实现中，一个thread 有 emb_size 个赋值操作， 而示例中，一个 thread 赋值一次
+embedding 这个kernel 其输入输出矩阵size不一致，更能够让我们学习kernel 中 idx 的对应关系  
+1、我的实现中，一个thread 有 emb_size 个赋值操作， 而示例中，一个 thread 赋值一次  
 2、blockIdx.x * blockDim.x + threadIdx.x; 对应着输出的数据的索引
 
 在本例中，假定一个block计算 indices 中的一个元素。
