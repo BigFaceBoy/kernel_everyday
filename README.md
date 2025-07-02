@@ -10,4 +10,5 @@
 - [day06 gelu](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day06%20gelu)
 - [day07 swish](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day07%20swish)
 - [day08 hardswish](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day08%20hardswish)
-- [day09 hardshrink](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day00%20hardshrink)
+- [day09 hardshrink](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day09%20hardshrink)
+- [day10 embedding](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day10%20embedding)
