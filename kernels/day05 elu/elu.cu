@@ -78,7 +78,13 @@ __global__ void elu_f16_kernel(half *x, half *y, int N){
 __global__ void elu_f16x2_kernel(half *x, half *y, int N){
     int idx =  2 * (blockIdx.x * blockDim.x + threadIdx.x);
     if(idx + 1 < N){
-        //half2 reg_x = reinterpret_cast<half2*>(x)[idx]; //这种方式会崩溃
+        /**
+         * 这种方式会崩溃, 原因是reinterpret_cast<half2*>(x)[idx] 取值的位置为
+         *     x + idx * sizeof(half2)   (out of bound)
+         * (reinterpret_cast<half2*>(x + idx))[0] 取值的位置为：
+         *     x + idx * sizeof(half)
+         * */
+        //half2 reg_x = reinterpret_cast<half2*>(x)[idx];
         half2 reg_x = (reinterpret_cast<half2*>(x + idx))[0];
         half2 reg_y;
 
