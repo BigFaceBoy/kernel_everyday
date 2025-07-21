@@ -78,21 +78,21 @@ for S, K in SKs:
     )
     run_benchmark(torch.sum, values_half, "f16f16_th")
 
-    # print("-" * 80)
-    # values_bf16 = values.bfloat16()
-    # run_benchmark(lib.block_all_reduce_sum_bf16_bf16, values_bf16, "bf16bf16")
-    # run_benchmark(lib.block_all_reduce_sum_bf16_f32, values_bf16, "bf16f32")
-    # run_benchmark(lib.block_all_reduce_sum_bf16x2_f32, values_bf16, "bf16x2f32")
-    # run_benchmark(
-    #     lib.block_all_reduce_sum_bf16x2_bf16, values_bf16, "bf16x2bf16"
-    # )
-    # run_benchmark(
-    #     lib.block_all_reduce_sum_bf16x8_pack_f32, values_bf16, "bf16x8packf32"
-    # )
-    # run_benchmark(
-    #     lib.block_all_reduce_sum_bf16x8_pack_bf16, values_bf16, "bf16x8packbf16"
-    # )
-    # run_benchmark(torch.sum, values_bf16, "bf16bf16_th")
+    print("-" * 80)
+    values_bf16 = values.bfloat16()
+    run_benchmark(lib.block_all_reduce_sum_bf16_bf16, values_bf16, "bf16bf16")
+    run_benchmark(lib.block_all_reduce_sum_bf16_f32, values_bf16, "bf16f32")
+    run_benchmark(lib.block_all_reduce_sum_bf16x2_f32, values_bf16, "bf16x2f32")
+    run_benchmark(
+        lib.block_all_reduce_sum_bf16x2_bf16, values_bf16, "bf16x2bf16"
+    )
+    run_benchmark(
+        lib.block_all_reduce_sum_bf16x8_pack_f32, values_bf16, "bf16x8packf32"
+    )
+    run_benchmark(
+        lib.block_all_reduce_sum_bf16x8_pack_bf16, values_bf16, "bf16x8packbf16"
+    )
+    run_benchmark(torch.sum, values_bf16, "bf16bf16_th")
 
     # print("-" * 80)
     # values_f8e4m3 = values.to(dtype=torch.float8_e4m3fn)
