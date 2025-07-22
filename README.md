@@ -14,3 +14,4 @@
 - [day10 embedding](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day10%20embedding)
 - [day11 mat_transpose](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day11%20mat_transpose)  (未完，待续)
 - [day12 reduce](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day12%20reduce)
+- [day13 dot_product](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day13%20dot_product)
