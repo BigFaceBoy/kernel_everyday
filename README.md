@@ -16,3 +16,4 @@
 - [day12 reduce](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day12%20reduce)
 - [day13 dot_product](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day13%20dot_product)
 - [day14 softmax](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day14%20softmax)
+- [day15 rope](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day15%20rope)
