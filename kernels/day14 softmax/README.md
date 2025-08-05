@@ -11,31 +11,41 @@
 
 关于softmax的计算及优化，可以参考[From Online Softmax to FlashAttention](https://courses.cs.washington.edu/courses/cse599m/23sp/notes/flashattn.pdf)
 # 标准softmax
-对于$x = \{ x_1,x_2,x_3, ... ,x_n \}$
+对于 $x = \{ x_1,x_2,x_3, ... ,x_n \}$
+
 $$
-l(x) = \sum_{i = 1}^{n}e^{x_i} \\
+l(x) = \sum_{i = 1}^{n}e^{x_i}
+$$
+
+$$
 softmax(x_i) = {\frac{e^{x_1}}{l(x)}}
 $$
 
 # safe-softmax
 $$
-m=\max_i x_i = max(x_1,x_2,...,x_n) \\
-l(x) = \sum_{i = 1}^{n}e^{x_i -m} \\
-softmax(x_i) = {\frac{e^{x_1 - m}}{l(x)}}
+m=\max_i x_i = max(x_1,x_2,...,x_n) $$
+
+$$l(x) = \sum_{i = 1}^{n}e^{x_i -m} $$
+$$ softmax(x_i) = {\frac{e^{x_1 - m}}{l(x)}}
 $$
 
 # online softmax
-**for** $i \gets 1,N$ **do**
+**for** $i \gets 1,N$ **do**  
+
 $$
-m_i \gets max(m_{i-1},x_i)\\
+m_i \gets max(m_{i-1},x_i)$$
+$$
 d_i^{'} \gets d_{i-1}^{'}e^{m_{i-1}-m_i}+e^{x_i-m_i} 
 $$
+
 **end**
 
 **for** $i \gets 1,N$ **do**
+
 $$
 softmax(x_i)\gets \frac{e^{x_i-m_N}}{d_N^{'}} 
 $$
+
 **end**
 
 但是问题是这个是一个逐元素递归的方式，经过之前的训练，我们是希望能在warp中计算。  
@@ -43,20 +53,26 @@ $$
 第二次循环，计算的是[(0,31),(15,16)]、[(1,30),(14,17)]、...  
 那我们重新来推导一下：  
 第一次循环，计算(0,31)、(15,16):
+
 $$
-m_0 = max(x_0, x_{31}) \\
-d_0 = e^{x_0 - m_0} + e^{x_{31} - m_0} \\
-\\
-m_1 = max(x_{15}, x_{16}) \\
-d_1 = e^{x_{15} - m_1} + e^{x_{16} - m_1} \\
+m_0 = max(x_0, x_{31}) $$
+
+$$d_0 = e^{x_0 - m_0} + e^{x_{31} - m_0} $$
+
+$$
+m_1 = max(x_{15}, x_{16}) $$
+
+$$d_1 = e^{x_{15} - m_1} + e^{x_{16} - m_1} 
 $$
 
 第二次循环，计算[(0,31),(15,16)]:
+
 $$
-m_{new} = max(m_0, m_1) \\
-d_{new} = e^{x_0 - m_{new}} + e^{x_{31} - m_{new}} + e^{x_{15} - m_{new}} + e^{x_{16} - m_{new}} \\
-= \frac{e^{x_0} + e^{x_{31}} + e^{x_{15}} + e^{x_{16}}}{e^{m_{new}}}
-= \frac{d_0e^{m_0} + d_1e^{m_1}}{e^{m_{new}}} 
+m_{new} = max(m_0, m_1) $$
+
+$$d_{new} = e^{x_0 - m_{new}} + e^{x_{31} - m_{new}} + e^{x_{15} - m_{new}} + e^{x_{16} - m_{new}} $$
+$$= \frac{e^{x_0} + e^{x_{31}} + e^{x_{15}} + e^{x_{16}}}{e^{m_{new}}}$$
+$$= \frac{d_0e^{m_0} + d_1e^{m_1}}{e^{m_{new}}} 
 $$
 
 
