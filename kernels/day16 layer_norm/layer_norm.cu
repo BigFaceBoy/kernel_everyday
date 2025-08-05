@@ -271,7 +271,7 @@ __global__ void layer_norm_f16x8_pack_f16_kernel(half* x, half* y, float g, floa
 
     half pack_x[8], pack_y[8];
 
-    if(idx + 7 < N){
+    if(idx + 7 < N * K){
         LDST128BITS(pack_x[0]) = LDST128BITS(x[idx]);
         half sum_pack = __float2half(0.0f);
         for(int i = 0; i < 8; i++){
@@ -313,7 +313,7 @@ __global__ void layer_norm_f16x8_pack_f32_kernel(half* x, half* y, float g, floa
 
     half pack_x[8], pack_y[8];
 
-    if(idx + 7 < N){
+    if(idx + 7 < N * K){
         LDST128BITS(pack_x[0]) = LDST128BITS(x[idx]);
         float sum_pack = 0.0f;
         for(int i = 0; i < 8; i++){
