@@ -4,17 +4,18 @@
 
 假设input为 $q = [q_0, q_1, ..., q_n]$.  
 第一步：分组
+
 $$
 [q_0,q_1], [q_2, q_3], ..., [q_{n-1}, q_n]
 $$
 
-第二步：应用二维旋转矩阵,对于第 i 对$[q_{2i}, q_{2i+1}]$
+第二步：应用二维旋转矩阵,对于第 i 对 $[q_{2i}, q_{2i+1}]$
 
 $$
-\begin{bmatrix}
-    q^{'}_{2i} \\
-    q^{'}_{2i+1}
-\end{bmatrix} = 
+\begin{bmatrix} 
+\hat q_{2i} \\
+\hat q_{2i+1}
+\end{bmatrix} =
 \begin{bmatrix} 
 cos(m\theta_i) \quad -sin(m\theta_i) \\
 sin(m\theta_i) \quad cos(m\theta_i)
