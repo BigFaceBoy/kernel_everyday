@@ -18,3 +18,4 @@
 - [day14 softmax](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day14%20softmax)
 - [day15 rope](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day15%20rope)
 - [day16 layer_norm](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day16%20layer_norm)
+- [day17 rms_norm](https://github.com/BigFaceBoy/kernel_everyday/tree/main/kernels/day17%20rms_norm)
